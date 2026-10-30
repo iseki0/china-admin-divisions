@@ -15,7 +15,7 @@ go test -race ./...
 go vet ./...
 npm ci
 npm run typecheck
-npm run build
+npm run generate:browser
 npm test
 ```
 
@@ -50,7 +50,7 @@ Gin 可使用 `ginhandler.New(loader)`，或 `ginhandler.New(loader, options)`�
 
 ## 浏览器
 
-浏览器入口无运行时依赖，通过 `@iseki0/china-admin-divisions` 导入。仓库提交 `dist/decoder.js` 和类型声明，Git 依赖安装不需要执行构建脚本。维护源为 `frontend/decoder.ts`，修改后执行 `npm run build`。一次 fetch，浏览器自动根据 HTTP Content-Encoding 解压，解析器通过 ReadableStream 分批解析，不能再手动解压。
+浏览器入口无运行时依赖，通过 `@iseki0/china-admin-divisions` 导入。仓库提交 `dist/decoder.js` 和类型声明，Git 依赖安装不需要执行构建脚本。维护源为 `frontend/decoder.ts`，修改后执行 `npm run generate:browser`。一次 fetch，浏览器自动根据 HTTP Content-Encoding 解压，解析器通过 ReadableStream 分批解析，不能再手动解压。
 
 ```ts
 import { loadDivisions, decodeDivisions } from '@iseki0/china-admin-divisions';

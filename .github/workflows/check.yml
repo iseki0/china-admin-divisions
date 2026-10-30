@@ -15,7 +15,7 @@ jobs:
           node-version: '24'
       - run: npm ci
       - run: npm run typecheck
-      - run: npm run build
+      - run: npm run generate:browser
       - run: go generate ./...
       - run: git diff --exit-code -- data.bin.gz dist
       - run: go test -race ./...
