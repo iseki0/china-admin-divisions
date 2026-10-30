@@ -4,9 +4,24 @@
   "type": "module",
   "scripts": {
     "test": "node --experimental-strip-types --test frontend/*.test.mjs",
-    "typecheck": "tsc -p tsconfig.json"
+    "typecheck": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.build.json"
   },
   "devDependencies": {
     "typescript": "5.9.3"
+  },
+  "version": "0.1.0",
+  "files": [
+    "dist",
+    "data.bin.gz",
+    "README.md",
+    "DATA.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/decoder.d.ts",
+      "import": "./dist/decoder.js"
+    },
+    "./data.bin.gz": "./data.bin.gz"
   }
 }
